@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Database
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# Android build artifacts from earlier spike
+poc_gemma/build/
+poc_gemma/.dart_tool/
