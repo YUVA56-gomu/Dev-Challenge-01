@@ -15,6 +15,11 @@ class AIProvider(ABC):
         """Generates a text completion for a multi-turn conversation."""
         pass
 
+    @abstractmethod
+    async def chat_stream(self, messages: List[Dict[str, str]], system_prompt: Optional[str] = None):
+        """Yields text chunks for a multi-turn conversation."""
+        pass
+
     async def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         """Single-turn helper for backward compatibility."""
         return await self.chat([{"role": "user", "content": prompt}], system_prompt=system_prompt)
@@ -97,6 +102,45 @@ class OllamaGemmaProvider(AIProvider):
             )
         except Exception as e:
             raise RuntimeError(f"Gemma inference error: {str(e)}")
+
+    async def chat_stream(self, messages: List[Dict[str, str]], system_prompt: Optional[str] = None):
+        formatted_messages = []
+        if system_prompt:
+            formatted_messages.append({"role": "system", "content": system_prompt})
+        
+        for msg in messages:
+            role = msg.get("role", "user")
+            content = msg.get("content", "")
+            if content.strip():
+                formatted_messages.append({"role": role, "content": content})
+
+        payload = {
+            "model": self.model,
+            "messages": formatted_messages,
+            "stream": True,
+            "options": {
+                "temperature": 0.7,
+                "top_p": 0.9,
+            },
+        }
+
+        import json
+        try:
+            async with httpx.AsyncClient(timeout=120.0) as client:
+                async with client.stream("POST", f"{self.base_url}/api/chat", json=payload) as response:
+                    if response.status_code != 200:
+                        yield f"Ollama API error ({response.status_code})"
+                        return
+                    async for line in response.aiter_lines():
+                        if line:
+                            try:
+                                chunk = json.loads(line)
+                                if "message" in chunk and "content" in chunk["message"]:
+                                    yield chunk["message"]["content"]
+                            except json.JSONDecodeError:
+                                pass
+        except Exception as e:
+            yield f"\n[Connection Error: {str(e)}]"
 
 # Provider instance factory
 _provider_instance: Optional[AIProvider] = None

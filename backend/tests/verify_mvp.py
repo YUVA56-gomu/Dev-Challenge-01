@@ -1,5 +1,4 @@
 import httpx
-import sys
 
 BASE_URL = "http://127.0.0.1:8000"
 
@@ -10,16 +9,17 @@ def test_all():
     
     with httpx.Client(timeout=60.0) as client:
         # 1. Health
-        print("\n[1/6] Testing Health Endpoint...")
+        print("\n[1/7] Testing Health Endpoint...")
         res = client.get(f"{BASE_URL}/api/health")
         assert res.status_code == 200, f"Health failed: {res.text}"
         data = res.json()
         print(f"  ✓ Status: {data['status']}")
         print(f"  ✓ Model: {data['ai_provider']['model_target']}")
         print(f"  ✓ Connected: {data['ai_provider']['connected']}")
+        print(f"  ✓ Voice Provider: {data['voice_provider']['provider']} (Available: {data['voice_provider']['available']})")
 
         # 2. Multi-turn AI Chat
-        print("\n[2/6] Testing AI Companion Multi-Turn Conversation...")
+        print("\n[2/7] Testing AI Companion Multi-Turn Conversation...")
         chat_payload = {
             "message": "Can you give me a simple mnemonic to remember this?",
             "history": [
@@ -34,14 +34,25 @@ def test_all():
         print(f"  ✓ Provider: {chat_data['provider']}")
         print(f"  ✓ Response preview: {chat_data['reply'][:120]}...")
 
-        # 3. Study Subjects & Chapters
-        print("\n[3/6] Testing Study Subjects & Chapter Operations...")
+        # 3. Voice Synthesis & Fallback
+        print("\n[3/7] Testing Voice Synthesis & Fallback Adapter...")
+        voice_res = client.post(
+            f"{BASE_URL}/api/voice/synthesize",
+            json={"text": "Hello, let us study Accounting Standards today."}
+        )
+        assert voice_res.status_code == 200, f"Voice synthesize failed: {voice_res.text}"
+        if "audio" in voice_res.headers.get("content-type", ""):
+            print("  ✓ ElevenLabs returned direct MP3 audio stream!")
+        else:
+            v_data = voice_res.json()
+            print(f"  ✓ Graceful Fallback verified: {v_data.get('status')} - {v_data.get('message')}")
+
+        # 4. Study Subjects & Chapters
+        print("\n[4/7] Testing Study Subjects & Chapter Operations...")
         res = client.get(f"{BASE_URL}/api/study/subjects")
         assert res.status_code == 200
         subjects = res.json()
         print(f"  ✓ Loaded {len(subjects)} CA Papers/Subjects")
-        for s in subjects[:2]:
-            print(f"    - {s['code']}: {s['name']} ({s['progress_percentage']}% completed)")
 
         # Update a chapter
         first_ch_id = subjects[0]['chapters'][0]['id']
@@ -52,9 +63,8 @@ def test_all():
         assert update_res.status_code == 200
         print(f"  ✓ Updated chapter {first_ch_id} status and notes")
 
-        # 4. Tasks Management
-        print("\n[4/6] Testing Daily Study Tasks CRUD...")
-        # Create
+        # 5. Tasks Management
+        print("\n[5/7] Testing Daily Study Tasks CRUD...")
         task_res = client.post(f"{BASE_URL}/api/study/tasks", json={"title": "Revise Schedule III balance sheet format"})
         assert task_res.status_code == 200
         new_task = task_res.json()
@@ -65,18 +75,16 @@ def test_all():
         assert toggle_res.status_code == 200
         print(f"  ✓ Toggled task completion: completed = {toggle_res.json()['completed']}")
 
-        # 5. Progress Metrics
-        print("\n[5/6] Testing Progress & Streak Stats...")
+        # 6. Progress Metrics
+        print("\n[6/7] Testing Progress & Streak Stats...")
         prog_res = client.get(f"{BASE_URL}/api/study/progress")
         assert prog_res.status_code == 200
         prog = prog_res.json()
         print(f"  ✓ Overall Progress: {prog['overall_progress_percentage']}%")
         print(f"  ✓ Streak: {prog['current_streak_days']} Day(s)")
-        print(f"  ✓ Chapters: {prog['completed_chapters']} completed, {prog['in_progress_chapters']} in progress")
-        print(f"  ✓ Tasks: {prog['tasks_completed']}/{prog['tasks_total']} completed")
 
-        # 6. Negative Thought Reframer (Gemma)
-        print("\n[6/6] Testing Negative Thought Reframing (Gemma AI)...")
+        # 7. Negative Thought Reframer (Gemma)
+        print("\n[7/7] Testing Negative Thought Reframing (Gemma AI)...")
         reframe_res = client.post(
             f"{BASE_URL}/api/wellness/reframe",
             json={"thought": "I made so many mistakes in mock test practical problems today. I feel like giving up."}
@@ -84,10 +92,10 @@ def test_all():
         assert reframe_res.status_code == 200
         reframed = reframe_res.json()
         print(f"  ✓ Reframer model: {reframed['model']}")
-        print(f"  ✓ Reframed perspective:\n    {reframed['reframed'][:200]}...")
+        print(f"  ✓ Reframed perspective:\n    {reframed['reframed'][:160]}...")
 
     print("\n" + "=" * 60)
-    print("ALL 6 TEST PHASES PASSED SUCCESSFULLY!")
+    print("ALL 7 TEST PHASES PASSED SUCCESSFULLY!")
     print("=" * 60)
 
 if __name__ == "__main__":

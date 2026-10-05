@@ -1,0 +1,15 @@
+{
+  "chunk_id": "doc_acc_as10_1",
+  "document_name": "ICAI Study Material - Paper 1 Advanced Accounting",
+  "source": "ICAI Official Study Material",
+  "version_date": "2024-2025 Edition",
+  "stage": "Intermediate",
+  "group_name": "Group 1",
+  "paper": "Paper 1: Advanced Accounting",
+  "module": "Module 1: Accounting Standards",
+  "chapter": "Chapter 2: Accounting Standards (AS 10)",
+  "topic": "Property, Plant and Equipment - Depreciation, Component Accounting & Disposal",
+  "page_number": 62,
+  "statutory_reference": "Accounting Standard (AS) 10 (Revised) issued by ICAI",
+  "content": "Accounting Standard (AS) 10 (Revised), 'Property, Plant and Equipment':\n\n1. Definition & Recognition:\n   Property, plant and equipment are tangible items that:\n   (a) are held for use in the production or supply of goods or services, for rental to others, or for administrative purposes; and\n   (b) are expected to be used during more than a period of twelve months.\n   The cost of an item of PPE shall be recognized as an asset if, and only if:\n   (i) it is probable that future economic benefits associated with the item will flow to the enterprise; and\n   (ii) the cost of the item can be measured reliably.\n\n2. Component Accounting & Depreciation:\n   Each part of an item of PPE with a cost that is significant in relation to the total cost of the item SHALL be depreciated separately (component approach).\n   The depreciable amount (cost minus residual value) of an asset should be allocated on a systematic basis over its useful life.\n   The depreciation method applied shall reflect the pattern in which the asset's future economic benefits are expected to be consumed by the enterprise.\n   The residual value and useful life of an asset should be reviewed at least at each financial year-end. If expectations differ from previous estimates, the change is accounted for as a change in an accounting estimate under AS 5 (applied prospectively).\n\n3. De-recognition and Sale of Asset before Useful Life Ends:\n   The carrying amount of an item of PPE shall be de-recognized:\n   (a) on disposal; or\n   (b) when no future economic benefits are expected from its use or disposal.\n   Gain or loss arising from de-recognition of an item of PPE shall be included in the statement of profit and loss when the item is de-recognized (unless AS 19 leases requires otherwise on a sale and leaseback).\n   Calculation: Gain or Loss on Disposal = Net Disposal Proceeds - Carrying Amount (Book Value) of the asset at the date of disposal.\n   Gains shall NOT be classified as revenue."
+}

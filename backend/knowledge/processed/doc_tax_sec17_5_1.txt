@@ -1,0 +1,20 @@
+=== ICAI Study Material - Paper 3 Taxation (Module 2: GST) ===
+Source: ICAI Official Study Material (2024-2025 Edition)
+Section/Standard: Section 17(5) Central Goods and Services Tax (CGST) Act, 2017
+Chapter: Chapter 6: Input Tax Credit | Topic: Blocked Credits under Section 17(5) | Page: 142
+
+Section 17(5) of the CGST Act, 2017 provides an overriding negative list of goods and services on which Input Tax Credit (ITC) is blocked and not available, notwithstanding anything contained in Section 16(1) and Section 18(1):
+
+1. Motor Vehicles: ITC is blocked on motor vehicles for transportation of persons having approved seating capacity of not more than 13 persons (including the driver), EXCEPT when they are used for making taxable supplies of:
+   (a) Further supply of such motor vehicles;
+   (b) Transportation of passengers;
+   (c) Imparting training on driving such motor vehicles.
+   Vessels and aircraft are also subject to similar restrictions with exceptions for commercial transport and training.
+
+2. Food, Beverages, Club Memberships & Personal Care: ITC is blocked on food and beverages, outdoor catering, beauty treatment, health services, cosmetic and plastic surgery, leasing or renting of motor vehicles/vessels, and membership of a club, health and fitness centre.
+   CRITICAL EXCEPTION: ITC is ALLOWED where an inward supply of such goods or services is used by a registered person for making an outward taxable supply of the same category of goods or services or as an element of a taxable composite or mixed supply, OR where it is statutory obligatory for an employer to provide the same to its employees under any law for the time being in force.
+
+3. Personal Consumption & Lost Goods: ITC is specifically blocked on:
+   (a) Goods or services used for personal consumption;
+   (b) Goods lost, stolen, destroyed, written off or disposed of by way of gift or free samples;
+   (c) Any tax paid in accordance with the provisions of Sections 74, 129 and 130 (fraud, willful misstatement, suppression of facts, detention and confiscation).

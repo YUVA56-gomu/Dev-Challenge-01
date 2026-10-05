@@ -1,46 +1,369 @@
-:root {
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --bg-primary: #0f141c;
-  --bg-secondary: #18202c;
-  --bg-tertiary: #202b3b;
-  --bg-card: rgba(26, 36, 50, 0.7);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-focus: rgba(99, 102, 241, 0.5);
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --accent-primary: #6366f1;
-  --accent-primary-hover: #4f46e5;
-  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-  --accent-success: #10b981;
-  --accent-warning: #f59e0b;
-  --accent-danger: #ef4444;
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
+/* ============================================================
+   SATHI साथी — DESIGN SYSTEM
+   Unified token system for both Light & Dark themes.
+   Both themes use the SAME variable names. Only the values change.
+   ============================================================ */
+
+/* ---- Google Fonts: Inter ---- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ============================================================
+   LIGHT THEME (default)
+   Soft ocean-light: off-white surfaces, subtle blue tint, 
+   deep readable typography, cyan/azure accent.
+   ============================================================ */
+:root,
+[data-theme="light"] {
+
+  /* --- Backgrounds (layered depth) --- */
+  --bg-app:            #f0f6fc;
+  --bg-subtle:         #e8f3fb;
+  --bg-surface:        #ffffff;
+  --bg-card:           #ffffff;
+  --bg-elevated:       #ffffff;
+  --bg-inset:          #f7fafd;
+  --bg-glass:          rgba(255, 255, 255, 0.82);
+  --bg-glass-strong:   rgba(255, 255, 255, 0.94);
+  --bg-overlay:        rgba(15, 23, 42, 0.42);
+
+  /* --- Glass / Blur --- */
+  --glass-blur:        blur(16px);
+  --glass-blur-sm:     blur(8px);
+  --glass-border:      rgba(14, 165, 233, 0.14);
+  --glass-border-strong: rgba(14, 165, 233, 0.28);
+
+  /* --- Borders --- */
+  --border-light:      rgba(14, 165, 233, 0.14);
+  --border-subtle:     rgba(15, 23, 42, 0.07);
+  --border-medium:     rgba(15, 23, 42, 0.12);
+  --border-focus:      #0ea5e9;
+
+  /* --- Typography --- */
+  --text-primary:      #0c1526;
+  --text-secondary:    #2d4060;
+  --text-muted:        #5a7a9a;
+  --text-faint:        #8faabe;
+  --text-on-accent:    #ffffff;
+
+  /* --- Accent — Sathi Cyan/Azure --- */
+  --accent-primary:    #0284c7;
+  --accent-hover:      #0369a1;
+  --accent-pressed:    #075985;
+  --accent-soft:       rgba(2, 132, 199, 0.08);
+  --accent-soft-mid:   rgba(2, 132, 199, 0.15);
+  --accent-cyan:       #06b6d4;
+  --accent-light:      #38bdf8;
+
+  /* --- Semantic Colors --- */
+  --color-success:     #059669;
+  --color-success-bg:  #ecfdf5;
+  --color-success-border: #a7f3d0;
+  --color-warning:     #d97706;
+  --color-warning-bg:  #fffbeb;
+  --color-warning-border: #fde68a;
+  --color-error:       #dc2626;
+  --color-error-bg:    #fef2f2;
+  --color-error-border: #fecaca;
+  --color-info:        #0284c7;
+  --color-info-bg:     #eff8ff;
+  --color-info-border: #bae6fd;
+  --color-purple:      #7c3aed;
+  --color-purple-bg:   #f5f3ff;
+  --color-purple-border: #ddd6fe;
+
+  /* --- Shadows (layered) --- */
+  --shadow-xs:         0 1px 2px rgba(12, 21, 38, 0.04);
+  --shadow-sm:         0 1px 4px rgba(12, 21, 38, 0.06), 0 1px 2px rgba(12, 21, 38, 0.04);
+  --shadow-card:       0 2px 12px rgba(12, 21, 38, 0.06), 0 1px 3px rgba(2, 132, 199, 0.04);
+  --shadow-card-hover: 0 6px 24px rgba(12, 21, 38, 0.1), 0 2px 6px rgba(2, 132, 199, 0.07);
+  --shadow-modal:      0 20px 60px rgba(12, 21, 38, 0.14), 0 4px 12px rgba(12, 21, 38, 0.08);
+  --shadow-orb:        0 8px 28px rgba(2, 132, 199, 0.28);
+  --shadow-orb-glow:   0 0 40px rgba(6, 182, 212, 0.22);
+
+  /* --- Code Blocks --- */
+  --bg-code:           #1a2332;
+  --bg-code-inline:    rgba(2, 132, 199, 0.07);
+  --text-code:         #e2eaf5;
+  --text-code-inline:  #0369a1;
+
+  /* --- Sidebar specific --- */
+  --sidebar-bg:        #ffffff;
+  --sidebar-border:    rgba(14, 165, 233, 0.1);
+  --sidebar-active-bg: rgba(2, 132, 199, 0.08);
+  --sidebar-active-border: rgba(2, 132, 199, 0.22);
+  --sidebar-hover-bg:  rgba(12, 21, 38, 0.04);
+
+  /* --- Header specific --- */
+  --header-bg:         rgba(240, 246, 252, 0.88);
+
+  /* --- Progress / Charts --- */
+  --track-bg:          rgba(12, 21, 38, 0.08);
+  --track-fill:        var(--accent-primary);
+
+  /* --- Border Radius --- */
+  --radius-xs:         4px;
+  --radius-sm:         8px;
+  --radius-md:         12px;
+  --radius-lg:         16px;
+  --radius-xl:         22px;
+  --radius-2xl:        28px;
+  --radius-full:       9999px;
+
+  /* --- Spacing Scale --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* --- Typography --- */
+  --font-family:       'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:         'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --leading-tight:     1.25;
+  --leading-normal:    1.55;
+  --leading-relaxed:   1.7;
+
+  /* --- Transitions --- */
+  --transition-fast:   0.14s ease;
+  --transition-base:   0.22s ease;
+  --transition-slow:   0.38s ease;
+
+  /* --- Background Gradient (subtle ambient) --- */
+  --bg-gradient:
+    radial-gradient(ellipse at 8% 6%, rgba(186, 230, 253, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 92% 10%, rgba(199, 210, 254, 0.22) 0%, transparent 48%),
+    radial-gradient(ellipse at 50% 95%, rgba(165, 243, 252, 0.2) 0%, transparent 50%);
 }
 
-* {
+
+/* ============================================================
+   DARK THEME
+   Deep ocean: dark navy/slate, translucent surfaces,
+   cyan/azure accent — SAME Sathi product, different light.
+   ============================================================ */
+[data-theme="dark"] {
+
+  /* --- Backgrounds (layered depth) --- */
+  --bg-app:            #080f1d;
+  --bg-subtle:         #0b1528;
+  --bg-surface:        #0f1e34;
+  --bg-card:           #122038;
+  --bg-elevated:       #172744;
+  --bg-inset:          #0b1528;
+  --bg-glass:          rgba(15, 30, 52, 0.82);
+  --bg-glass-strong:   rgba(18, 32, 56, 0.94);
+  --bg-overlay:        rgba(0, 0, 0, 0.6);
+
+  /* --- Glass / Blur --- */
+  --glass-blur:        blur(16px);
+  --glass-blur-sm:     blur(8px);
+  --glass-border:      rgba(34, 184, 240, 0.14);
+  --glass-border-strong: rgba(34, 184, 240, 0.26);
+
+  /* --- Borders --- */
+  --border-light:      rgba(34, 184, 240, 0.12);
+  --border-subtle:     rgba(255, 255, 255, 0.06);
+  --border-medium:     rgba(255, 255, 255, 0.1);
+  --border-focus:      #22b8f0;
+
+  /* --- Typography --- */
+  --text-primary:      #e8f1fc;
+  --text-secondary:    #94afc8;
+  --text-muted:        #607a96;
+  --text-faint:        #3d5472;
+  --text-on-accent:    #ffffff;
+
+  /* --- Accent — Sathi Cyan/Azure (lighter for dark bg) --- */
+  --accent-primary:    #22b8f0;
+  --accent-hover:      #38c5f5;
+  --accent-pressed:    #0ea5e9;
+  --accent-soft:       rgba(34, 184, 240, 0.1);
+  --accent-soft-mid:   rgba(34, 184, 240, 0.18);
+  --accent-cyan:       #22d3ee;
+  --accent-light:      #67e8f9;
+
+  /* --- Semantic Colors --- */
+  --color-success:     #22c55e;
+  --color-success-bg:  rgba(34, 197, 94, 0.1);
+  --color-success-border: rgba(34, 197, 94, 0.25);
+  --color-warning:     #f59e0b;
+  --color-warning-bg:  rgba(245, 158, 11, 0.1);
+  --color-warning-border: rgba(245, 158, 11, 0.25);
+  --color-error:       #f87171;
+  --color-error-bg:    rgba(248, 113, 113, 0.1);
+  --color-error-border: rgba(248, 113, 113, 0.25);
+  --color-info:        #22b8f0;
+  --color-info-bg:     rgba(34, 184, 240, 0.1);
+  --color-info-border: rgba(34, 184, 240, 0.25);
+  --color-purple:      #a78bfa;
+  --color-purple-bg:   rgba(167, 139, 250, 0.1);
+  --color-purple-border: rgba(167, 139, 250, 0.25);
+
+  /* --- Shadows --- */
+  --shadow-xs:         0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-sm:         0 2px 6px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-card:       0 4px 18px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(34, 184, 240, 0.07);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(34, 184, 240, 0.1);
+  --shadow-modal:      0 24px 64px rgba(0, 0, 0, 0.7), 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-orb:        0 8px 32px rgba(34, 184, 240, 0.35);
+  --shadow-orb-glow:   0 0 50px rgba(34, 211, 238, 0.22);
+
+  /* --- Code Blocks --- */
+  --bg-code:           #060e1a;
+  --bg-code-inline:    rgba(34, 184, 240, 0.1);
+  --text-code:         #cbd5e1;
+  --text-code-inline:  #67e8f9;
+
+  /* --- Sidebar specific --- */
+  --sidebar-bg:        #0c1a2e;
+  --sidebar-border:    rgba(34, 184, 240, 0.08);
+  --sidebar-active-bg: rgba(34, 184, 240, 0.1);
+  --sidebar-active-border: rgba(34, 184, 240, 0.22);
+  --sidebar-hover-bg:  rgba(255, 255, 255, 0.04);
+
+  /* --- Header specific --- */
+  --header-bg:         rgba(8, 15, 29, 0.9);
+
+  /* --- Progress / Charts --- */
+  --track-bg:          rgba(255, 255, 255, 0.07);
+  --track-fill:        var(--accent-primary);
+
+  /* --- Border Radius (same as light) --- */
+  --radius-xs:         4px;
+  --radius-sm:         8px;
+  --radius-md:         12px;
+  --radius-lg:         16px;
+  --radius-xl:         22px;
+  --radius-2xl:        28px;
+  --radius-full:       9999px;
+
+  /* --- Spacing Scale (same as light) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* --- Typography (same as light) --- */
+  --font-family:       'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:         'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --leading-tight:     1.25;
+  --leading-normal:    1.55;
+  --leading-relaxed:   1.7;
+
+  /* --- Transitions (same as light) --- */
+  --transition-fast:   0.14s ease;
+  --transition-base:   0.22s ease;
+  --transition-slow:   0.38s ease;
+
+  /* --- Background Gradient (subtle dark ambient) --- */
+  --bg-gradient:
+    radial-gradient(ellipse at 8% 6%, rgba(34, 184, 240, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 92% 12%, rgba(99, 102, 241, 0.05) 0%, transparent 48%),
+    radial-gradient(ellipse at 48% 92%, rgba(6, 182, 212, 0.05) 0%, transparent 52%);
+}
+
+
+/* ============================================================
+   GLOBAL RESET & BASE
+   ============================================================ */
+*, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-primary);
+  background-color: var(--bg-app);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  background-size: cover;
   color: var(--text-primary);
   min-height: 100vh;
-  line-height: 1.5;
+  line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color var(--transition-slow),
+    color var(--transition-base);
 }
 
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+input, textarea, select {
+  color: var(--text-primary);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+/* Focus rings - accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-soft-mid);
+  color: var(--text-primary);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

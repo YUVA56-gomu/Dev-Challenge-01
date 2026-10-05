@@ -1,0 +1,28 @@
+=== ICAI Study Material - Paper 1 Advanced Accounting ===
+Source: ICAI Official Study Material (2024-2025 Edition)
+Section/Standard: Accounting Standard (AS) 10 (Revised) issued by ICAI
+Chapter: Chapter 2: Accounting Standards (AS 10) | Topic: Property, Plant and Equipment - Depreciation, Component Accounting & Disposal | Page: 62
+
+Accounting Standard (AS) 10 (Revised), 'Property, Plant and Equipment':
+
+1. Definition & Recognition:
+   Property, plant and equipment are tangible items that:
+   (a) are held for use in the production or supply of goods or services, for rental to others, or for administrative purposes; and
+   (b) are expected to be used during more than a period of twelve months.
+   The cost of an item of PPE shall be recognized as an asset if, and only if:
+   (i) it is probable that future economic benefits associated with the item will flow to the enterprise; and
+   (ii) the cost of the item can be measured reliably.
+
+2. Component Accounting & Depreciation:
+   Each part of an item of PPE with a cost that is significant in relation to the total cost of the item SHALL be depreciated separately (component approach).
+   The depreciable amount (cost minus residual value) of an asset should be allocated on a systematic basis over its useful life.
+   The depreciation method applied shall reflect the pattern in which the asset's future economic benefits are expected to be consumed by the enterprise.
+   The residual value and useful life of an asset should be reviewed at least at each financial year-end. If expectations differ from previous estimates, the change is accounted for as a change in an accounting estimate under AS 5 (applied prospectively).
+
+3. De-recognition and Sale of Asset before Useful Life Ends:
+   The carrying amount of an item of PPE shall be de-recognized:
+   (a) on disposal; or
+   (b) when no future economic benefits are expected from its use or disposal.
+   Gain or loss arising from de-recognition of an item of PPE shall be included in the statement of profit and loss when the item is de-recognized (unless AS 19 leases requires otherwise on a sale and leaseback).
+   Calculation: Gain or Loss on Disposal = Net Disposal Proceeds - Carrying Amount (Book Value) of the asset at the date of disposal.
+   Gains shall NOT be classified as revenue.
